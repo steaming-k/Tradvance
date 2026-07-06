@@ -16,7 +16,7 @@ export default function BoardPage() {
             const items = MOCK_INQUIRIES.filter((inquiry) => inquiry.status === column.id);
             return (
               <div key={column.id} className="w-64 shrink-0">
-                <div className="flex items-center gap-2 px-1">
+                <div className="flex items-center gap-5 px-1">
                   <span className={`h-2 w-2 rounded-full ${column.dot}`} />
                   <h2 className="text-sm font-medium text-gray-800">{column.label}</h2>
                   <span className="rounded-full bg-gray-100 px-2 text-sm text-gray-500">

@@ -215,7 +215,7 @@ export default function LandingPage() {
       {/* 사용 방법 */}
       <section id="how" className="bg-white border-t border-gray-200">
         <div className="mx-auto max-w-5xl px-6 py-16">
-          <h2 className="text-xl font-semibold text-gray-900">이렇게 동작합니다</h2>
+          <h2 className="text-xl font-semibold text-gray-900">동작 순서</h2>
 
           <div className="mt-8 grid gap-4 md:grid-cols-3">
             {STEPS.map((step) => (
@@ -240,7 +240,7 @@ export default function LandingPage() {
       <section className="bg-gray-50 border-t border-gray-200">
         <div className="mx-auto max-w-5xl px-6 py-16">
           <h2 className="text-xl font-semibold text-gray-900">
-            왜 &ldquo;사람 개입 구조&rdquo;인가
+            왜 사람 개입 구조인가
           </h2>
           <p className="mt-1 text-sm text-gray-500">
             수출 실무자 인터뷰(9명)에서 확인한 결과가 이 서비스의 설계 근거입니다.
