@@ -2,6 +2,7 @@ import Link from "next/link";
 import { NoticeBar } from "@/components/NoticeBar";
 import { LandingUsageCount } from "@/components/LandingUsageCount";
 import { LandingHeaderLogo } from "@/components/LandingHeaderLogo";
+import { TypingHeroHeadline } from "@/components/TypingHeroHeadline";
 import { CheckIcon } from "@/components/icons";
 
 const CATEGORY_LABELS = [
@@ -33,8 +34,8 @@ const STEPS = [
 ];
 
 const STATS = [
-  { value: "8 / 9", label: "완전 자동화가 아닌 “사람 개입 구조”를 선호한 응답자" },
-  { value: "6 / 9", label: "“AI 답변 과신”을 가장 큰 우려로 꼽은 응답자 (1위)" },
+  { value: "89%", label: "완전 자동화가 아닌 “사람 개입 구조”를 선호한 응답자" },
+  { value: "67%", label: "“AI 답변 과신”을 가장 큰 우려로 꼽은 응답자 (1위)" },
   { value: "7개", label: "인터뷰에서 도출한 확인 항목 카테고리" },
 ];
 
@@ -56,48 +57,55 @@ export default function LandingPage() {
 
       <NoticeBar />
 
-      {/* 히어로 */}
-      <section className="bg-white">
-        <div className="mx-auto max-w-5xl px-6 py-16 grid gap-12 md:grid-cols-2 md:items-center">
-          <div>
-            <p className="text-sm font-medium text-purple-600">
-              산업재 수출 · 바이어 문의 응대
-            </p>
-            <h1 className="mt-3 text-3xl font-semibold leading-snug text-gray-900 sm:text-4xl">
-              해외 바이어 문의,
-              <br />
-              확인 항목과 위험 구간까지
-              <br />
-              짚어주는 영어 응대 초안
-            </h1>
-            <p className="mt-4 max-w-xl text-base text-gray-500">
-              수출 담당자가 부족한 소규모 제조업체를 위해, 바이어 문의 원문을
-              붙여넣으면 확인 항목을 분류하고 확정되지 않은 정보를 짚어주는 영어
-              답변 초안을 만들어 드립니다.
-            </p>
+      {/* 히어로 — 배경 이미지/영상 자리 (가로 전체, 추후 이미지로 교체) */}
+      <section className="relative w-full h-[560px] bg-gray-300 overflow-hidden">
+        {/* 어두운 오버레이: 배경에 이미지/영상이 들어가도 글자 가독성 확보 */}
+        <div className="absolute inset-0 bg-black/50" />
 
-            <div className="mt-8 flex flex-wrap items-center gap-3">
-              <Link
-                href="/dashboard"
-                className="bg-purple-600 text-white rounded-lg px-5 py-2.5 font-medium hover:bg-purple-700 transition-all duration-150"
-              >
-                지금 사용해보기
-              </Link>
-              <Link
-                href="#features"
-                className="border border-gray-300 text-gray-700 rounded-lg px-5 py-2.5 font-medium hover:bg-gray-50 transition-all duration-150"
-              >
-                기능 살펴보기
-              </Link>
-            </div>
+        <div className="relative z-10 flex h-full items-center justify-center px-6 text-center">
+          <TypingHeroHeadline />
+        </div>
+      </section>
 
-            <div className="mt-6">
-              <LandingUsageCount />
-            </div>
+      {/* 소개 + 답변 초안 미리보기 — 히어로 이미지 아래 배치 */}
+      <section className="bg-white border-b border-gray-200">
+        <div className="mx-auto max-w-3xl px-6 py-16 text-center">
+          <p className="text-sm font-medium text-purple-600">
+            산업재 수출 · 바이어 문의 응대
+          </p>
+          <h2 className="mt-3 text-3xl font-semibold leading-snug text-gray-900 sm:text-4xl">
+            해외 바이어 문의,
+            <br />
+            확인 항목과 위험 구간까지
+            <br />
+            짚어주는 영어 응대 초안
+          </h2>
+          <p className="mx-auto mt-4 max-w-xl text-base text-gray-500">
+            수출 담당자가 부족한 소규모 제조업체를 위해, 바이어 문의 원문을
+            붙여넣으면 확인 항목을 분류하고 확정되지 않은 정보를 짚어주는 영어
+            답변 초안을 만들어 드립니다.
+          </p>
+
+          <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
+            <Link
+              href="/dashboard"
+              className="bg-purple-600 text-white rounded-lg px-5 py-2.5 font-medium hover:bg-purple-700 transition-all duration-150"
+            >
+              지금 사용해보기
+            </Link>
+            <Link
+              href="#features"
+              className="border border-gray-300 text-gray-700 rounded-lg px-5 py-2.5 font-medium hover:bg-gray-50 transition-all duration-150"
+            >
+              기능 살펴보기
+            </Link>
           </div>
 
-          {/* 위험 구간 쇼케이스 (시각적 우선순위 1위) */}
-          <div className="rounded-lg border border-gray-200 bg-white shadow-sm p-5">
+          <div className="mt-6 flex justify-center">
+            <LandingUsageCount />
+          </div>
+
+          <div className="mx-auto mt-12 max-w-2xl rounded-lg border border-gray-200 bg-white shadow-sm p-5 text-left">
             <p className="text-sm text-gray-500">답변 초안 미리보기</p>
             <div className="mt-3 rounded-lg border border-gray-200 bg-white p-4 text-base leading-relaxed text-gray-800">
               As for the minimum order quantity (MOQ), we can currently offer{" "}
