@@ -32,13 +32,10 @@ const CATEGORY_LABEL_MAP = Object.fromEntries(
   CATEGORIES.map((c) => [c.id, c.label])
 ) as Record<CategoryId, string>;
 
-export function analyzeInquiry(text: string): AnalyzeResponse {
-  if (!isInquiry(text)) {
-    return { recognized: false };
-  }
-
-  const mentionedCategoryIds = getMentionedCategoryIds(text);
-  const draftText = buildDraftText(text, mentionedCategoryIds);
+export function buildDraftAnalysis(draftText: string): {
+  draftSegments: DraftSegment[];
+  riskItems: RiskItem[];
+} {
   const detected = detectRisks(draftText);
 
   const riskItems: RiskItem[] = detected.map((d, index) => ({
@@ -61,6 +58,18 @@ export function analyzeInquiry(text: string): AnalyzeResponse {
   if (cursor < draftText.length) {
     draftSegments.push({ text: draftText.slice(cursor), riskId: null });
   }
+
+  return { draftSegments, riskItems };
+}
+
+export function analyzeInquiry(text: string): AnalyzeResponse {
+  if (!isInquiry(text)) {
+    return { recognized: false };
+  }
+
+  const mentionedCategoryIds = getMentionedCategoryIds(text);
+  const draftText = buildDraftText(text, mentionedCategoryIds);
+  const { draftSegments, riskItems } = buildDraftAnalysis(draftText);
 
   return {
     recognized: true,
