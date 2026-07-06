@@ -3,8 +3,8 @@ import { BoardStatus, MockInquiry } from "./types";
 export const STATUS_COLUMNS: { id: BoardStatus; label: string; dot: string }[] = [
   { id: "new", label: "신규 문의", dot: "bg-gray-400" },
   { id: "needs_review", label: "확인 필요", dot: "bg-pink-500" },
-  { id: "drafting", label: "초안 작성", dot: "bg-purple-500" },
-  { id: "reviewed", label: "검토 완료", dot: "bg-blue-600" },
+  { id: "drafting", label: "초안 작성", dot: "bg-indigo-500" },
+  { id: "reviewed", label: "검토 완료", dot: "bg-green-600" },
 ];
 
 export const PRIORITY_LABELS: Record<MockInquiry["priority"], string> = {
@@ -20,8 +20,8 @@ export const PRIORITY_STYLES: Record<MockInquiry["priority"], string> = {
 };
 
 export const ASSIGNEE_COLOR_STYLES: Record<MockInquiry["assignees"][number]["color"], string> = {
-  blue: "bg-purple-600",
-  green: "bg-blue-600",
+  blue: "bg-indigo-600",
+  green: "bg-green-600",
   amber: "bg-pink-600",
   gray: "bg-gray-500",
 };

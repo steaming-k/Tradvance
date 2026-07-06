@@ -19,7 +19,7 @@ export default function SettingsPage() {
           <FilterSetupSteps />
 
           <div className="rounded-lg border border-gray-200 bg-white shadow-sm p-4">
-            <div className="flex items-center gap-2">
+            <div className="flex items-start gap-2">
               <span className="flex h-6 w-6 items-center justify-center rounded-full bg-[rgb(98_80_237/77%)] text-sm font-semibold text-white">
                 3
               </span>

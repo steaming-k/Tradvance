@@ -86,7 +86,7 @@ export function EditableDraftTranslation({ draftText, onApply }: Props) {
         onChange={(e) => setKoreanText(e.target.value)}
         readOnly={status !== "done"}
         rows={rows}
-        className="mt-1 w-full resize-none rounded-lg border border-gray-200 bg-white p-3 text-base text-gray-800 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-purple-500"
+        className="mt-1 w-full resize-none rounded-lg border border-gray-200 bg-white p-3 text-base text-gray-800 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
       />
       <div className="mt-2 flex items-center gap-2">
         <button
@@ -95,7 +95,7 @@ export function EditableDraftTranslation({ draftText, onApply }: Props) {
           onClick={handleApply}
           className={
             canApply
-              ? "border border-purple-300 text-purple-700 rounded-lg px-3 py-1.5 text-sm font-medium hover:bg-purple-50 transition-all duration-150"
+              ? "border border-indigo-300 text-indigo-700 rounded-lg px-3 py-1.5 text-sm font-medium hover:bg-indigo-50 transition-all duration-150"
               : "border border-gray-200 text-gray-400 rounded-lg px-3 py-1.5 text-sm cursor-not-allowed"
           }
         >

@@ -72,14 +72,14 @@ export function ResultScreen({
             <button
               type="button"
               onClick={onOpenRiskModal}
-              className="bg-[rgb(98_80_237/77%)] text-white rounded-lg px-4 py-2 font-medium hover:bg-purple-700 transition-all duration-150"
+              className="bg-[rgb(98_80_237/77%)] text-white rounded-lg px-4 py-2 font-medium hover:bg-[rgb(98_80_237/100%)] transition-all duration-150"
             >
               위험 구간 확인하기
             </button>
           </div>
         )}
         {hasRisk && allChecked && (
-          <p className="flex items-center gap-1 text-sm font-medium text-blue-600">
+          <p className="flex items-center gap-1 text-sm font-medium text-green-600">
             <CheckIcon className="h-4 w-4" />
             위험 구간 {riskItems.length}건을 모두 확인했습니다.
           </p>
@@ -100,7 +100,7 @@ export function ResultScreen({
           onClick={() => canCopy && onCopy()}
           className={
             canCopy
-              ? "bg-[rgb(98_80_237/77%)] text-white rounded-lg px-4 py-2 font-medium hover:bg-purple-700 transition-all duration-150"
+              ? "bg-[rgb(98_80_237/77%)] text-white rounded-lg px-4 py-2 font-medium hover:bg-[rgb(98_80_237/100%)] transition-all duration-150"
               : "bg-gray-200 text-gray-400 rounded-lg px-4 py-2 cursor-not-allowed"
           }
         >

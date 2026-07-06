@@ -19,8 +19,8 @@ const CATEGORY_LABEL_MAP = Object.fromEntries(CATEGORIES.map((c) => [c.id, c.lab
 const STATUS_BADGE_STYLES: Record<MockInquiry["status"], string> = {
   new: "bg-gray-100 text-gray-600",
   needs_review: "bg-pink-100 text-pink-800",
-  drafting: "bg-purple-100 text-purple-700",
-  reviewed: "bg-blue-50 text-blue-600",
+  drafting: "bg-indigo-100 text-indigo-700",
+  reviewed: "bg-green-50 text-green-600",
 };
 
 interface Props {
@@ -79,7 +79,7 @@ export function BoardCardDetail({ inquiry, analysis: initialAnalysis }: Props) {
   return (
     <div className="mx-auto max-w-5xl px-6 py-10">
       <nav className="text-sm text-gray-500">
-        <Link href="/board" className="hover:text-purple-600 transition-all duration-150">
+        <Link href="/board" className="hover:text-indigo-600 transition-all duration-150">
           문의 보드
         </Link>{" "}
         › {inquiry.company}
@@ -119,7 +119,7 @@ export function BoardCardDetail({ inquiry, analysis: initialAnalysis }: Props) {
               {analysis.mentionedCategoryIds.map((id) => (
                 <span
                   key={id}
-                  className="rounded-full px-3 py-1 text-sm bg-purple-100 text-purple-700"
+                  className="rounded-full px-3 py-1 text-sm bg-indigo-100 text-indigo-700"
                 >
                   {CATEGORY_LABEL_MAP[id]}
                 </span>
@@ -142,14 +142,14 @@ export function BoardCardDetail({ inquiry, analysis: initialAnalysis }: Props) {
                 <button
                   type="button"
                   onClick={handleOpenModal}
-                  className="bg-[rgb(98_80_237/77%)] text-white rounded-lg px-4 py-2 font-medium hover:bg-purple-700 transition-all duration-150"
+                  className="bg-[rgb(98_80_237/77%)] text-white rounded-lg px-4 py-2 font-medium hover:bg-[rgb(98_80_237/100%)] transition-all duration-150"
                 >
                   초안 검토하기
                 </button>
               </div>
             )}
             {hasRisk && allChecked && (
-              <p className="mt-3 flex items-center gap-1 text-sm font-medium text-blue-600">
+              <p className="mt-3 flex items-center gap-1 text-sm font-medium text-green-600">
                 <CheckIcon className="h-4 w-4" />
                 위험 구간 {analysis.riskItems.length}건을 모두 확인했습니다.
               </p>
@@ -171,7 +171,7 @@ export function BoardCardDetail({ inquiry, analysis: initialAnalysis }: Props) {
                 onClick={() => canCopy && handleCopy()}
                 className={
                   canCopy
-                    ? "bg-[rgb(98_80_237/77%)] text-white rounded-lg px-4 py-2 font-medium hover:bg-purple-700 transition-all duration-150"
+                    ? "bg-[rgb(98_80_237/77%)] text-white rounded-lg px-4 py-2 font-medium hover:bg-[rgb(98_80_237/100%)] transition-all duration-150"
                     : "bg-gray-200 text-gray-400 rounded-lg px-4 py-2 cursor-not-allowed"
                 }
               >
@@ -203,14 +203,14 @@ export function BoardCardDetail({ inquiry, analysis: initialAnalysis }: Props) {
           </div>
           <div>
             <p className="text-sm text-gray-500">다음 행동</p>
-            <p className="text-base font-medium text-purple-600">{inquiry.nextAction}</p>
+            <p className="text-base font-medium text-indigo-600">{inquiry.nextAction}</p>
           </div>
           <div>
             <p className="text-sm text-gray-500">검토 상태</p>
             <span
               className={
                 !hasRisk || allChecked
-                  ? "inline-block mt-1 rounded-full px-2 py-0.5 text-sm bg-blue-50 text-blue-600"
+                  ? "inline-block mt-1 rounded-full px-2 py-0.5 text-sm bg-green-50 text-green-600"
                   : "inline-block mt-1 rounded-full px-2 py-0.5 text-sm bg-pink-100 text-pink-800"
               }
             >

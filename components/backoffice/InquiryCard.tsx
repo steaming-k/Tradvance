@@ -22,7 +22,7 @@ export function InquiryCard({ inquiry }: Props) {
   return (
     <Link
       href={`/board/${inquiry.id}`}
-      className="block rounded-lg border border-gray-200 bg-white shadow-sm p-3 hover:border-purple-300 transition-all duration-150"
+      className="block rounded-lg border border-gray-200 bg-white shadow-sm p-3 hover:border-indigo-300 transition-all duration-150"
     >
       <p className="font-medium text-gray-800">
         {inquiry.company} <span className="text-sm text-gray-500">· {inquiry.country}</span>
@@ -30,14 +30,14 @@ export function InquiryCard({ inquiry }: Props) {
 
       <div className="mt-2 flex flex-wrap gap-1">
         {inquiry.status === "reviewed" ? (
-          <span className="rounded-full px-2 py-0.5 text-sm bg-blue-50 text-blue-600">
+          <span className="rounded-full px-2 py-0.5 text-sm bg-green-50 text-green-600">
             복사됨
           </span>
         ) : (
           tags.map((tag) => (
             <span
               key={tag}
-              className="rounded-full px-2 py-0.5 text-sm bg-purple-100 text-purple-700"
+              className="rounded-full px-2 py-0.5 text-sm bg-indigo-100 text-indigo-700"
             >
               {tag}
             </span>

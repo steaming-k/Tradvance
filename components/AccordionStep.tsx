@@ -16,7 +16,7 @@ export function AccordionStep({ stepNumber, title, status, children }: Props) {
       className={
         isDone
           ? "border-l-4 border-gray-200 bg-gray-50 rounded-lg p-4 transition-all duration-200"
-          : "border-l-4 border-purple-500 bg-purple-50 rounded-lg p-4 transition-all duration-200"
+          : "border-l-4 border-indigo-500 bg-indigo-50 rounded-lg p-4 transition-all duration-200"
       }
     >
       <div className="flex items-center justify-between">
@@ -24,7 +24,7 @@ export function AccordionStep({ stepNumber, title, status, children }: Props) {
           {stepNumber}. {title}
         </h3>
         {isDone && (
-          <span className="flex items-center gap-1 text-blue-600 text-sm font-medium">
+          <span className="flex items-center gap-1 text-green-600 text-sm font-medium">
             <CheckIcon className="h-4 w-4" />
             완료
           </span>

@@ -25,7 +25,7 @@ export function ForwardingAddressCard() {
   return (
     <div className="rounded-lg border border-gray-200 bg-white p-4">
       <label className="flex items-center gap-2 text-sm text-gray-800">
-        <input type="checkbox" defaultChecked className="h-4 w-4 accent-purple-600" />
+        <input type="checkbox" defaultChecked className="h-4 w-4 accent-indigo-600" />
         다음 주소로 전달
       </label>
       <input
@@ -35,7 +35,7 @@ export function ForwardingAddressCard() {
         className={
           touched && !isValid
             ? "mt-2 w-full rounded-lg border border-pink-400 px-3 py-2 text-sm text-gray-800 focus:outline-none focus:ring-2 focus:ring-pink-500"
-            : "mt-2 w-full rounded-lg border border-gray-200 px-3 py-2 text-sm text-gray-800 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-purple-500"
+            : "mt-2 w-full rounded-lg border border-gray-200 px-3 py-2 text-sm text-gray-800 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
         }
       />
       {touched && !isValid && (

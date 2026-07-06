@@ -1,6 +1,6 @@
 export function NoticeBar() {
   return (
-    <div className="bg-purple-50 text-purple-800 text-sm px-4 py-2 text-center">
+    <div className="bg-indigo-50 text-indigo-800 text-sm px-4 py-2 text-center">
       AI는 초안을 만들고, 최종 판단은 담당자가 합니다.
     </div>
   );

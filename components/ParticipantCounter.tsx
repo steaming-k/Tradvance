@@ -26,7 +26,7 @@ export function ParticipantCounter() {
   return (
     <p className="text-sm text-gray-500 countPeople">
       누적 참여자 수{" "}
-      <span className="font-semibold text-purple-600">
+      <span className="font-semibold text-indigo-600">
         {count === null ? "-" : count.toLocaleString()}
       </span>
       명

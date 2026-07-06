@@ -1,8 +1,10 @@
+import Image from "next/image";
 import Link from "next/link";
 import { NoticeBar } from "@/components/NoticeBar";
 import { LandingUsageCount } from "@/components/LandingUsageCount";
 import { LandingHeaderLogo } from "@/components/LandingHeaderLogo";
 import { TypingHeroHeadline } from "@/components/TypingHeroHeadline";
+import { HeroBackgroundSlideshow } from "@/components/HeroBackgroundSlideshow";
 import { CheckIcon } from "@/components/icons";
 
 const CATEGORY_LABELS = [
@@ -48,7 +50,7 @@ export default function LandingPage() {
           <LandingHeaderLogo />
           <Link
             href="/dashboard"
-            className="bg-[rgb(98_80_237/77%)] text-white rounded-lg px-4 py-2 text-sm font-medium hover:bg-purple-700 transition-all duration-150"
+            className="bg-[rgb(98_80_237/77%)] text-white rounded-lg px-4 py-2 text-sm font-medium hover:bg-[rgb(98_80_237/100%)] transition-all duration-150"
           >
             사용해보기
           </Link>
@@ -57,23 +59,32 @@ export default function LandingPage() {
 
       <NoticeBar />
 
-      {/* 히어로 — 배경 이미지/영상 자리 (가로 전체, 추후 이미지로 교체) */}
-      <section className="relative w-full h-[560px] bg-gray-300 overflow-hidden">
-        {/* 어두운 오버레이: 배경에 이미지/영상이 들어가도 글자 가독성 확보 */}
+      {/* 히어로 — 배경 이미지 슬라이드쇼 */}
+      <section className="relative w-full h-[560px] overflow-hidden">
+        <HeroBackgroundSlideshow />
+        {/* 어두운 오버레이: 이미지 위에서도 글자 가독성 확보 */}
         <div className="absolute inset-0 bg-black/50" />
 
         <div className="relative z-10 flex h-full items-center justify-center px-6 text-center">
           <TypingHeroHeadline />
         </div>
-        <image></image>
       </section>
 
       {/* 소개 + 답변 초안 미리보기 — 히어로 이미지 아래 배치 */}
       <section className="bg-white border-b border-gray-200">
         <div className="mx-auto max-w-3xl px-6 py-16 text-center">
-          <p className="text-sm font-medium text-purple-600">
+          <Image
+            src="/logo.png"
+            alt="Tradvance"
+            width={800}
+            height={250}
+            priority
+            unoptimized
+            className="mx-auto mb-4 h-[100px] w-auto -translate-x-[15px]"
+          />
+          {/*<p className="text-sm font-medium text-indigo-600">
             산업재 수출 · 바이어 문의 응대
-          </p>
+          </p> */}
           <h2 className="mt-3 text-3xl font-semibold leading-snug text-gray-900 sm:text-4xl">
             해외 바이어 문의,
             <br />
@@ -82,7 +93,7 @@ export default function LandingPage() {
             짚어주는 영어 응대 초안
           </h2>
           <p className="mx-auto mt-4 max-w-xl text-base text-gray-500">
-            수출 담당자가 부족한 소규모 제조업체를 위해, 바이어 문의 원문을
+            소규모 제조업체를 위해, 바이어 문의 원문을
             붙여넣으면 확인 항목을 분류하고 확정되지 않은 정보를 짚어주는 영어
             답변 초안을 만들어 드립니다.
           </p>
@@ -109,7 +120,7 @@ export default function LandingPage() {
                   <CheckIcon className="h-3 w-3" />
                 </span>
                 <div>
-                  <span className="rounded-full px-2 py-0.5 text-sm bg-purple-100 text-purple-700">
+                  <span className="rounded-full px-2 py-0.5 text-sm bg-indigo-100 text-indigo-700">
                     납기
                   </span>
                   <p className="mt-1 font-medium text-gray-800">
@@ -130,7 +141,7 @@ export default function LandingPage() {
           <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
             <Link
               href="/dashboard"
-              className="bg-[rgb(98_80_237/77%)] text-white rounded-lg px-5 py-2.5 font-medium hover:bg-purple-700 transition-all duration-150"
+              className="bg-[rgb(98_80_237/77%)] text-white rounded-lg px-5 py-2.5 font-medium hover:bg-[rgb(98_80_237/100%)] transition-all duration-150"
             >
               지금 사용해보기
             </Link>
@@ -171,7 +182,7 @@ export default function LandingPage() {
                 {CATEGORY_LABELS.map((label) => (
                   <span
                     key={label}
-                    className="rounded-full px-3 py-1 text-sm bg-purple-100 text-purple-700"
+                    className="rounded-full px-3 py-1 text-sm bg-indigo-100 text-indigo-700"
                   >
                     {label}
                   </span>
@@ -203,7 +214,7 @@ export default function LandingPage() {
                 AI는 초안까지만 만듭니다. 발송 기능은 없고 클립보드 복사까지만
                 지원해, 마지막 확인과 발송은 사람이 직접 합니다.
               </p>
-              <p className="mt-4 flex items-center gap-1 text-sm font-medium text-blue-600">
+              <p className="mt-4 flex items-center gap-1 text-sm font-medium text-green-600">
                 <CheckIcon className="h-4 w-4" />
                 발송 자동화 없음 · 복사까지만
               </p>
@@ -243,7 +254,7 @@ export default function LandingPage() {
             왜 사람 개입 구조인가
           </h2>
           <p className="mt-1 text-sm text-gray-500">
-            수출 실무자 인터뷰(9명)에서 확인한 결과가 이 서비스의 설계 근거입니다.
+            수출 실무자 인터뷰에서 확인한 결과가 이 서비스의 설계 근거입니다.
           </p>
 
           <div className="mt-8 grid gap-4 md:grid-cols-3">
@@ -252,7 +263,7 @@ export default function LandingPage() {
                 key={stat.label}
                 className="rounded-lg border border-gray-200 bg-white shadow-sm p-6"
               >
-                <p className="text-3xl font-semibold text-purple-600">{stat.value}</p>
+                <p className="text-3xl font-semibold text-indigo-600">{stat.value}</p>
                 <p className="mt-2 text-sm text-gray-500">{stat.label}</p>
               </div>
             ))}
@@ -261,9 +272,10 @@ export default function LandingPage() {
       </section>
 
       {/* 마무리 CTA */}
+      {/*}
       <section className="bg-white border-t border-gray-200">
         <div className="mx-auto max-w-5xl px-6 py-16">
-          <div className="rounded-lg border border-gray-200 bg-purple-50 p-8 text-center">
+          <div className="rounded-lg border border-gray-200 bg-indigo-50 p-8 text-center">
             <h2 className="text-xl font-semibold text-gray-900">
               바이어 문의, 지금 바로 정리해보세요
             </h2>
@@ -274,7 +286,7 @@ export default function LandingPage() {
             <div className="mt-6">
               <Link
                 href="/dashboard"
-                className="inline-block bg-[rgb(98_80_237/77%)] text-white rounded-lg px-5 py-2.5 font-medium hover:bg-purple-700 transition-all duration-150"
+                className="inline-block bg-[rgb(98_80_237/77%)] text-white rounded-lg px-5 py-2.5 font-medium hover:bg-[rgb(98_80_237/100%)] transition-all duration-150"
               >
                 지금 사용해보기
               </Link>
@@ -282,6 +294,7 @@ export default function LandingPage() {
           </div>
         </div>
       </section>
+      */}
 
       {/* 푸터 */}
       <footer className="bg-white border-t border-gray-200">

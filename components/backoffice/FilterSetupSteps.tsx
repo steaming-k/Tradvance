@@ -9,7 +9,7 @@ const DEFAULT_FILTER = {
 };
 
 const INPUT_CLASS =
-  "mt-1 w-full rounded-lg border border-gray-200 px-3 py-2 text-gray-800 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-purple-500";
+  "mt-1 w-full rounded-lg border border-gray-200 px-3 py-2 text-gray-800 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500";
 
 export function FilterSetupSteps() {
   const [filter, setFilter] = useState(DEFAULT_FILTER);
@@ -23,7 +23,7 @@ export function FilterSetupSteps() {
   return (
     <>
       <div className="rounded-lg border border-gray-200 bg-white shadow-sm p-4">
-        <div className="flex items-center gap-2">
+        <div className="flex items-start gap-2">
           <span className="flex h-6 w-6 items-center justify-center rounded-full bg-[rgb(98_80_237/77%)] text-sm font-semibold text-white">
             1
           </span>
@@ -39,7 +39,7 @@ export function FilterSetupSteps() {
           <button
             type="button"
             onClick={handleNewFilter}
-            className="mt-2 text-purple-600 hover:text-purple-700 transition-all duration-150"
+            className="mt-2 text-indigo-600 hover:text-indigo-700 transition-all duration-150"
           >
             + 새 필터 만들기
           </button>
@@ -47,7 +47,7 @@ export function FilterSetupSteps() {
       </div>
 
       <div className="rounded-lg border border-gray-200 bg-white shadow-sm p-4">
-        <div className="flex items-center gap-2">
+        <div className="flex items-start gap-2">
           <span className="flex h-6 w-6 items-center justify-center rounded-full bg-[rgb(98_80_237/77%)] text-sm font-semibold text-white">
             2
           </span>

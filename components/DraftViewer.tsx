@@ -18,7 +18,7 @@ export function DraftViewer({ segments, checkedRiskIds }: Props) {
             key={index}
             className={
               checked
-                ? "bg-blue-50 text-blue-700 px-1 rounded"
+                ? "bg-green-50 text-green-700 px-1 rounded"
                 : "bg-pink-100 text-pink-900 px-1 rounded underline decoration-pink-400"
             }
           >

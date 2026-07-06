@@ -31,7 +31,7 @@ export function InquiryInputScreen({ onSubmit, initialText = "" }: Props) {
           onChange={(e) => setText(e.target.value)}
           rows={10}
           placeholder="예) Hello, we are interested in your products. Could you share your MOQ, price, and lead time?"
-          className="mt-4 w-full rounded-lg border border-gray-200 p-3 text-base text-gray-800 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-purple-500"
+          className="mt-4 w-full rounded-lg border border-gray-200 p-3 text-base text-gray-800 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
         />
 
         <div className="mt-3 flex flex-wrap gap-2">
@@ -59,7 +59,7 @@ export function InquiryInputScreen({ onSubmit, initialText = "" }: Props) {
             onClick={() => canSubmit && onSubmit(text)}
             className={
               canSubmit
-                ? "bg-[rgb(98_80_237/77%)] text-white rounded-lg px-4 py-2 font-medium hover:bg-purple-700 transition-all duration-150"
+                ? "bg-[rgb(98_80_237/77%)] text-white rounded-lg px-4 py-2 font-medium hover:bg-[rgb(98_80_237/100%)] transition-all duration-150"
                 : "bg-gray-200 text-gray-400 rounded-lg px-4 py-2 cursor-not-allowed"
             }
           >

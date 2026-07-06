@@ -55,10 +55,10 @@ export function RiskChecklistModal({
                   type="checkbox"
                   checked={checked}
                   onChange={() => onToggle(item.id)}
-                  className="mt-1 h-4 w-4 accent-purple-600"
+                  className="mt-1 h-4 w-4 accent-indigo-600"
                 />
                 <div>
-                  <span className="rounded-full px-2 py-0.5 text-sm bg-purple-100 text-purple-700">
+                  <span className="rounded-full px-2 py-0.5 text-sm bg-indigo-100 text-indigo-700">
                     {item.categoryLabel}
                   </span>
                   <p className="mt-1 font-medium text-gray-800">&ldquo;{item.quote}&rdquo;</p>
@@ -95,7 +95,7 @@ export function RiskChecklistModal({
             }}
             className={
               allChecked
-                ? "bg-[rgb(98_80_237/77%)] text-white rounded-lg px-4 py-2 font-medium hover:bg-purple-700 transition-all duration-150"
+                ? "bg-[rgb(98_80_237/77%)] text-white rounded-lg px-4 py-2 font-medium hover:bg-[rgb(98_80_237/100%)] transition-all duration-150"
                 : "bg-gray-200 text-gray-400 rounded-lg px-4 py-2 cursor-not-allowed"
             }
           >

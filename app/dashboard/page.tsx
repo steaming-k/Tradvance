@@ -29,7 +29,7 @@ export default function DashboardPage() {
   return (
     <BackofficeShell>
       <div className="mx-auto max-w-3xl px-6 py-10">
-        <h1 className="text-xl font-semibold text-gray-900">안녕하세요, 대성정밀 님</h1>
+        <h1 className="text-xl font-semibold text-gray-900">안녕하세요, 정말정밀 님</h1>
         <p className="mt-1 text-sm text-gray-500">
           해외 바이어 문의에 답변 초안을 만들어 드려요
         </p>
@@ -57,18 +57,18 @@ export default function DashboardPage() {
               <li key={item.label} className="flex items-center justify-between py-3">
                 <div className="flex items-center gap-2">
                   {item.done ? (
-                    <CheckIcon className="h-4 w-4 text-blue-600" />
+                    <CheckIcon className="h-4 w-4 text-green-600" />
                   ) : (
                     <span className="h-4 w-4 rounded-full border border-gray-300" />
                   )}
                   <span className="text-base text-gray-800">{item.label}</span>
                 </div>
                 {item.done ? (
-                  <span className="text-sm font-medium text-blue-600">완료</span>
+                  <span className="text-sm font-medium text-green-600">완료</span>
                 ) : (
                   <Link
                     href={item.href ?? "#"}
-                    className="bg-[rgb(98_80_237/77%)] text-white rounded-lg px-4 py-2 text-sm font-medium hover:bg-purple-700 transition-all duration-150"
+                    className="bg-[rgb(98_80_237/77%)] text-white rounded-lg px-4 py-2 text-sm font-medium hover:bg-[rgb(98_80_237/100%)] transition-all duration-150"
                   >
                     {item.cta}
                   </Link>
@@ -84,7 +84,7 @@ export default function DashboardPage() {
             <h2 className="text-base font-medium text-gray-800">최근 문의</h2>
             <Link
               href="/board"
-              className="text-sm text-purple-600 hover:text-purple-700 transition-all duration-150"
+              className="text-sm text-indigo-600 hover:text-indigo-700 transition-all duration-150"
             >
               문의 보드에서 전체 보기
             </Link>

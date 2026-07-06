@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
@@ -15,8 +16,16 @@ export function Sidebar() {
 
   return (
     <aside className="w-56 shrink-0 border-r border-gray-200 bg-white px-4 py-6">
-      <Link href="/" className="block px-2 text-xl font-semibold text-purple-600">
-        Tradvance
+      <Link href="/" className="-ml-2 block pr-2">
+        <Image
+          src="/logo.png"
+          alt="Tradvance"
+          width={951}
+          height={308}
+          priority
+          unoptimized
+          className="h-12 w-auto"
+        />
       </Link>
 
       <nav className="mt-8 flex flex-col gap-1">
@@ -29,7 +38,7 @@ export function Sidebar() {
               href={item.href}
               className={
                 active
-                  ? "rounded-lg px-3 py-2 text-sm font-medium bg-purple-50 text-purple-700 transition-all duration-150"
+                  ? "rounded-lg px-3 py-2 text-sm font-medium bg-indigo-50 text-indigo-700 transition-all duration-150"
                   : "rounded-lg px-3 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50 transition-all duration-150"
               }
             >

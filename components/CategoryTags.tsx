@@ -15,7 +15,7 @@ export function CategoryTags({ mentionedCategoryIds }: Props) {
             key={category.id}
             className={
               mentioned
-                ? "rounded-full px-3 py-1 text-sm bg-purple-100 text-purple-700"
+                ? "rounded-full px-3 py-1 text-sm bg-indigo-100 text-indigo-700"
                 : "rounded-full px-3 py-1 text-sm bg-gray-100 text-gray-400"
             }
           >
