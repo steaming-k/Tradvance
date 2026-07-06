@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { RiskItem } from "@/lib/types";
 import { CloseIcon } from "./icons";
+import { InlineTranslatedQuote } from "./InlineTranslatedQuote";
 
 interface Props {
   riskItems: RiskItem[];
@@ -54,14 +55,15 @@ export function RiskChecklistModal({
                   type="checkbox"
                   checked={checked}
                   onChange={() => onToggle(item.id)}
-                  className="mt-1 h-4 w-4 accent-blue-600"
+                  className="mt-1 h-4 w-4 accent-purple-600"
                 />
                 <div>
-                  <span className="rounded-full px-2 py-0.5 text-sm bg-blue-100 text-blue-700">
+                  <span className="rounded-full px-2 py-0.5 text-sm bg-purple-100 text-purple-700">
                     {item.categoryLabel}
                   </span>
                   <p className="mt-1 font-medium text-gray-800">&ldquo;{item.quote}&rdquo;</p>
-                  <p className="mt-1 text-sm text-gray-500">{item.reason}</p>
+                  <InlineTranslatedQuote text={item.quote} />
+                  <p className="mt-1 text-sm font-medium text-pink-800">{item.reason}</p>
                 </div>
               </label>
             );
@@ -69,7 +71,7 @@ export function RiskChecklistModal({
         </div>
 
         {attemptedConfirm && !allChecked && (
-          <p className="mt-3 text-sm font-medium text-amber-800">
+          <p className="mt-3 text-sm font-medium text-pink-800">
             모든 위험 구간을 확인해야 계속할 수 있습니다.
           </p>
         )}
@@ -93,7 +95,7 @@ export function RiskChecklistModal({
             }}
             className={
               allChecked
-                ? "bg-blue-600 text-white rounded-lg px-4 py-2 font-medium hover:bg-blue-700 transition-all duration-150"
+                ? "bg-purple-600 text-white rounded-lg px-4 py-2 font-medium hover:bg-purple-700 transition-all duration-150"
                 : "bg-gray-200 text-gray-400 rounded-lg px-4 py-2 cursor-not-allowed"
             }
           >

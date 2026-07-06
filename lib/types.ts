@@ -37,3 +37,27 @@ export interface UnrecognizedResult {
 }
 
 export type AnalyzeResponse = AnalysisResult | UnrecognizedResult;
+
+// 문의 보드(칸반) 목업 데이터 모델
+export type BoardStatus = "new" | "needs_review" | "drafting" | "reviewed";
+
+export type Priority = "high" | "medium" | "low";
+
+export interface Assignee {
+  initial: string;
+  name: string;
+  color: "blue" | "green" | "amber" | "gray";
+}
+
+export interface MockInquiry {
+  id: string;
+  company: string;
+  country: string;
+  subject: string;
+  status: BoardStatus;
+  priority: Priority;
+  assignees: Assignee[];
+  nextAction: string;
+  originalText: string;
+  receivedLabel: string;
+}

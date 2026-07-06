@@ -6,10 +6,11 @@ import { ParticipantCounter } from "./ParticipantCounter";
 
 interface Props {
   onSubmit: (text: string) => void;
+  initialText?: string;
 }
 
-export function InquiryInputScreen({ onSubmit }: Props) {
-  const [text, setText] = useState("");
+export function InquiryInputScreen({ onSubmit, initialText = "" }: Props) {
+  const [text, setText] = useState(initialText);
   const canSubmit = text.trim().length > 0;
 
   return (
@@ -30,7 +31,7 @@ export function InquiryInputScreen({ onSubmit }: Props) {
           onChange={(e) => setText(e.target.value)}
           rows={10}
           placeholder="예) Hello, we are interested in your products. Could you share your MOQ, price, and lead time?"
-          className="mt-4 w-full rounded-lg border border-gray-200 p-3 text-base text-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+          className="mt-4 w-full rounded-lg border border-gray-200 p-3 text-base text-gray-800 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-purple-500"
         />
 
         <div className="mt-3 flex flex-wrap gap-2">
@@ -58,7 +59,7 @@ export function InquiryInputScreen({ onSubmit }: Props) {
             onClick={() => canSubmit && onSubmit(text)}
             className={
               canSubmit
-                ? "bg-blue-600 text-white rounded-lg px-4 py-2 font-medium hover:bg-blue-700 transition-all duration-150"
+                ? "bg-purple-600 text-white rounded-lg px-4 py-2 font-medium hover:bg-purple-700 transition-all duration-150"
                 : "bg-gray-200 text-gray-400 rounded-lg px-4 py-2 cursor-not-allowed"
             }
           >

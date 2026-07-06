@@ -16,7 +16,7 @@ export function ExceptionScreen({ onRetry }: Props) {
         <button
           type="button"
           onClick={onRetry}
-          className="mt-6 bg-blue-600 text-white rounded-lg px-4 py-2 font-medium hover:bg-blue-700 transition-all duration-150"
+          className="mt-6 bg-purple-600 text-white rounded-lg px-4 py-2 font-medium hover:bg-purple-700 transition-all duration-150"
         >
           다시 입력하기
         </button>

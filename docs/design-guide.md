@@ -23,16 +23,16 @@ Claude Code가 화면을 구현할 때 참고할 디자인 시스템 정의. Tai
 |---|---|---|
 | 기본 배경 | 흰색 | `bg-white` |
 | 보조 배경(카드 밖 영역) | 연한 회색 | `bg-gray-50` |
-| 브랜드/포인트 컬러 | 블루 | `bg-blue-600` / `text-blue-600` |
-| 브랜드 호버 | 진한 블루 | `bg-blue-700` |
-| 완료/성공 상태 | 초록 (완료 체크, 확인 완료) | `text-green-600` / `bg-green-50` |
-| 위험/확인 필요 상태 | 주황 또는 노랑 (위험 구간 하이라이트) | `bg-amber-100` `text-amber-800` (하이라이트), `border-amber-400` |
+| 브랜드/포인트 컬러 | 보라 | `bg-purple-600` / `text-purple-600` |
+| 브랜드 호버 | 진한 보라 | `bg-purple-700` |
+| 완료/성공 상태 | 블루 (완료 체크, 확인 완료) | `text-blue-600` / `bg-blue-50` |
+| 위험/확인 필요 상태 | 핑크 (위험 구간 하이라이트) | `bg-pink-100` `text-pink-800` (하이라이트), `border-pink-400` |
 | 비활성 상태 | 회색 | `bg-gray-200` `text-gray-400` |
 | 본문 텍스트 | 진회색 (완전한 검정 금지) | `text-gray-800` |
 | 보조 텍스트 | 중간 회색 | `text-gray-500` |
 | 테두리 | 옅은 회색 | `border-gray-200` |
 
-**금지**: 보라·핑크 등 채도 높은 세컨더리 컬러 추가 금지. 컬러는 블루(브랜드) + 초록(완료) + 주황(위험) 3색 체계로 제한한다. 색이 늘어날수록 "무엇이 중요한지"가 흐려지기 때문이다.
+**금지**: 너무 채도 높은 세컨더리 컬러 추가 금지. 컬러는 보라(브랜드) + 블루(완료) + 핑크(위험) 3색 체계로 제한한다. 색이 늘어날수록 "무엇이 중요한지"가 흐려지기 때문이다.
 
 ---
 
@@ -58,28 +58,28 @@ rounded-lg border border-gray-200 bg-white shadow-sm p-4
 
 | 종류 | 스타일 |
 |---|---|
-| 주요 액션(분석 시작하기, 초안 복사하기) | `bg-blue-600 text-white rounded-lg px-4 py-2 font-medium hover:bg-blue-700` |
+| 주요 액션(분석 시작하기, 초안 복사하기) | `bg-purple-600 text-white rounded-lg px-4 py-2 font-medium hover:bg-purple-700` |
 | 비활성 상태 | `bg-gray-200 text-gray-400 rounded-lg px-4 py-2 cursor-not-allowed` |
 | 보조 액션(수정해서 사용하기) | `border border-gray-300 text-gray-700 rounded-lg px-4 py-2 hover:bg-gray-50` |
 
-호버 효과는 배경색 변화(`hover:bg-blue-700`)까지만 허용한다. `hover:scale-105` 같은 확대 애니메이션, 그림자 튀어나오는 효과는 쓰지 않는다 — 업무 도구에서 이런 효과는 산만함을 유발한다.
+호버 효과는 배경색 변화(`hover:bg-purple-700`)까지만 허용한다. `hover:scale-105` 같은 확대 애니메이션, 그림자 튀어나오는 효과는 쓰지 않는다 — 업무 도구에서 이런 효과는 산만함을 유발한다.
 
 ### 태그/뱃지 (확인 항목 7개 카테고리)
 ```
 rounded-full px-3 py-1 text-sm
 ```
-- 문의에서 언급된 항목: `bg-blue-100 text-blue-700`
+- 문의에서 언급된 항목: `bg-purple-100 text-purple-700`
 - 언급 안 된 항목: `bg-gray-100 text-gray-400`
 
 ### 위험 구간 하이라이트 (답변 초안 내 텍스트)
 ```
-bg-amber-100 text-amber-900 px-1 rounded underline decoration-amber-400
+bg-pink-100 text-pink-900 px-1 rounded underline decoration-pink-400
 ```
 초안 본문 안에서 위험 구간임을 눈에 띄게 하되, 텍스트 가독성을 해치지 않는 수준으로 제한한다.
 
 ### 아코디언 (문의 대응 단계)
-- 완료 단계: `border-l-4 border-gray-200 bg-gray-50`, 우측에 `text-green-600` 체크 + "완료" 텍스트
-- 진행 중 단계: `border-l-4 border-blue-500 bg-blue-50`
+- 완료 단계: `border-l-4 border-gray-200 bg-gray-50`, 우측에 `text-blue-600` 체크 + "완료" 텍스트
+- 진행 중 단계: `border-l-4 border-purple-500 bg-purple-50`
 - 전환 애니메이션은 `transition-all duration-200` 정도로 짧고 절제되게
 
 ### 모달 (위험 구간 체크리스트)
@@ -116,15 +116,14 @@ bg-gray-900 text-white rounded-lg px-4 py-2 text-sm
 
 ## 7. 공통 문구 배치 원칙
 
-"AI는 초안을 만들고, 최종 판단은 담당자가 합니다."는 매 화면에서 상단 고정 영역(예: 헤더 바로 아래 `bg-blue-50 text-blue-800 text-sm px-4 py-2`)에 동일한 스타일로 노출한다. 화면마다 문구 위치나 스타일이 달라지면 "매번 보이는 규칙"이라는 인상이 약해진다.
+"AI는 초안을 만들고, 최종 판단은 담당자가 합니다."는 매 화면에서 상단 고정 영역(예: 헤더 바로 아래 `bg-purple-50 text-purple-800 text-sm px-4 py-2`)에 동일한 스타일로 노출한다. 화면마다 문구 위치나 스타일이 달라지면 "매번 보이는 규칙"이라는 인상이 약해진다.
 
 ---
 
 ## 8. 참고 — 반영하지 않은 스타일 지침
 
-아래 지침은 이번 프로젝트 톤과 맞지 않아 반영하지 않았다. 다른 프로젝트(예: 특강 실습의 MBTI 앱) 참고 자료였을 가능성이 있어 기록만 남긴다.
+아래 지침은 이번 프로젝트 톤과 맞지 않아 반영하지 않았다. 다른 프로젝트(예: 특강 실습의 MBTI 앱) 참고 자료였을 가능성이 있어 기록만 남긴다. (2장 컬러가 보라/블루/핑크 체계로 변경되면서, 포인트 컬러로서의 보라 계열은 더 이상 "반영 안 함" 대상이 아니다 — 아래는 색상 외 항목만 남긴다.)
 
-- 보라 계열(`#6650F1`, `#CCCCFF`) 포인트 컬러
 - `rounded-2xl` 카드, `shadow-xl` 입체 그림자
 - `hover:scale-105` 호버 확대 애니메이션
 - `max-w-md` 모바일 퍼스트 레이아웃

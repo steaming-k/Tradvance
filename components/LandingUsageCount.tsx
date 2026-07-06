@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import { fetchParticipantCount, subscribeParticipantInserts } from "@/lib/supabase/participants";
 
-export function ParticipantCounter() {
+export function LandingUsageCount() {
   const [count, setCount] = useState<number | null>(null);
 
   useEffect(() => {
@@ -24,12 +24,13 @@ export function ParticipantCounter() {
   }, []);
 
   return (
-    <p className="text-sm text-gray-500">
-      누적 참여자 수{" "}
+    <div className="inline-flex items-center gap-2 text-sm text-gray-500">
+      <span className="inline-block h-2 w-2 rounded-full bg-blue-600" aria-hidden />
+      지금까지{" "}
       <span className="font-semibold text-purple-600">
         {count === null ? "-" : count.toLocaleString()}
       </span>
-      명
-    </p>
+      명이 응대 초안을 완성했습니다
+    </div>
   );
 }
