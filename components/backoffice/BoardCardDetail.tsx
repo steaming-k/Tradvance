@@ -142,7 +142,7 @@ export function BoardCardDetail({ inquiry, analysis: initialAnalysis }: Props) {
                 <button
                   type="button"
                   onClick={handleOpenModal}
-                  className="bg-purple-600 text-white rounded-lg px-4 py-2 font-medium hover:bg-purple-700 transition-all duration-150"
+                  className="bg-[rgb(98_80_237/77%)] text-white rounded-lg px-4 py-2 font-medium hover:bg-purple-700 transition-all duration-150"
                 >
                   초안 검토하기
                 </button>
@@ -171,7 +171,7 @@ export function BoardCardDetail({ inquiry, analysis: initialAnalysis }: Props) {
                 onClick={() => canCopy && handleCopy()}
                 className={
                   canCopy
-                    ? "bg-purple-600 text-white rounded-lg px-4 py-2 font-medium hover:bg-purple-700 transition-all duration-150"
+                    ? "bg-[rgb(98_80_237/77%)] text-white rounded-lg px-4 py-2 font-medium hover:bg-purple-700 transition-all duration-150"
                     : "bg-gray-200 text-gray-400 rounded-lg px-4 py-2 cursor-not-allowed"
                 }
               >

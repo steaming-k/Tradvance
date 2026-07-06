@@ -24,7 +24,7 @@ export function FilterSetupSteps() {
     <>
       <div className="rounded-lg border border-gray-200 bg-white shadow-sm p-4">
         <div className="flex items-center gap-2">
-          <span className="flex h-6 w-6 items-center justify-center rounded-full bg-purple-600 text-sm font-semibold text-white">
+          <span className="flex h-6 w-6 items-center justify-center rounded-full bg-[rgb(98_80_237/77%)] text-sm font-semibold text-white">
             1
           </span>
           <h2 className="text-base font-medium text-gray-800">필터 및 차단된 주소 열기</h2>
@@ -48,7 +48,7 @@ export function FilterSetupSteps() {
 
       <div className="rounded-lg border border-gray-200 bg-white shadow-sm p-4">
         <div className="flex items-center gap-2">
-          <span className="flex h-6 w-6 items-center justify-center rounded-full bg-purple-600 text-sm font-semibold text-white">
+          <span className="flex h-6 w-6 items-center justify-center rounded-full bg-[rgb(98_80_237/77%)] text-sm font-semibold text-white">
             2
           </span>
           <h2 className="text-base font-medium text-gray-800">새 필터 조건 입력</h2>

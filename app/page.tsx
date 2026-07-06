@@ -48,7 +48,7 @@ export default function LandingPage() {
           <LandingHeaderLogo />
           <Link
             href="/dashboard"
-            className="bg-purple-600 text-white rounded-lg px-4 py-2 text-sm font-medium hover:bg-purple-700 transition-all duration-150"
+            className="bg-[rgb(98_80_237/77%)] text-white rounded-lg px-4 py-2 text-sm font-medium hover:bg-purple-700 transition-all duration-150"
           >
             사용해보기
           </Link>
@@ -65,6 +65,7 @@ export default function LandingPage() {
         <div className="relative z-10 flex h-full items-center justify-center px-6 text-center">
           <TypingHeroHeadline />
         </div>
+        <image></image>
       </section>
 
       {/* 소개 + 답변 초안 미리보기 — 히어로 이미지 아래 배치 */}
@@ -86,24 +87,7 @@ export default function LandingPage() {
             답변 초안을 만들어 드립니다.
           </p>
 
-          <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
-            <Link
-              href="/dashboard"
-              className="bg-purple-600 text-white rounded-lg px-5 py-2.5 font-medium hover:bg-purple-700 transition-all duration-150"
-            >
-              지금 사용해보기
-            </Link>
-            <Link
-              href="#features"
-              className="border border-gray-300 text-gray-700 rounded-lg px-5 py-2.5 font-medium hover:bg-gray-50 transition-all duration-150"
-            >
-              기능 살펴보기
-            </Link>
-          </div>
-
-          <div className="mt-6 flex justify-center">
-            <LandingUsageCount />
-          </div>
+          
 
           <div className="mx-auto mt-12 max-w-2xl rounded-lg border border-gray-200 bg-white shadow-sm p-5 text-left">
             <p className="text-sm text-gray-500">답변 초안 미리보기</p>
@@ -142,6 +126,24 @@ export default function LandingPage() {
             <p className="mt-3 text-sm font-medium text-pink-800">
               위험 구간을 모두 확인해야 복사가 열립니다.
             </p>
+          </div>
+          <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
+            <Link
+              href="/dashboard"
+              className="bg-[rgb(98_80_237/77%)] text-white rounded-lg px-5 py-2.5 font-medium hover:bg-purple-700 transition-all duration-150"
+            >
+              지금 사용해보기
+            </Link>
+            <Link
+              href="#features"
+              className="border border-gray-300 text-gray-700 rounded-lg px-5 py-2.5 font-medium hover:bg-gray-50 transition-all duration-150"
+            >
+              기능 살펴보기
+            </Link>
+          </div>
+
+          <div className="mt-6 flex justify-center">
+            <LandingUsageCount />
           </div>
         </div>
       </section>
@@ -221,7 +223,7 @@ export default function LandingPage() {
                 key={step.n}
                 className="rounded-lg border border-gray-200 bg-white shadow-sm p-6"
               >
-                <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-purple-600 text-sm font-semibold text-white">
+                <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-[rgb(98_80_237/77%)] text-sm font-semibold text-white">
                   {step.n}
                 </div>
                 <h3 className="mt-4 text-base font-medium text-gray-800">
@@ -272,7 +274,7 @@ export default function LandingPage() {
             <div className="mt-6">
               <Link
                 href="/dashboard"
-                className="inline-block bg-purple-600 text-white rounded-lg px-5 py-2.5 font-medium hover:bg-purple-700 transition-all duration-150"
+                className="inline-block bg-[rgb(98_80_237/77%)] text-white rounded-lg px-5 py-2.5 font-medium hover:bg-purple-700 transition-all duration-150"
               >
                 지금 사용해보기
               </Link>

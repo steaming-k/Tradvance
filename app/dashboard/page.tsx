@@ -47,7 +47,7 @@ export default function DashboardPage() {
 
           <div className="mt-3 h-2 rounded-full bg-gray-200">
             <div
-              className="h-2 rounded-full bg-purple-600 transition-all duration-200"
+              className="h-2 rounded-full bg-[rgb(98_80_237/77%)] transition-all duration-200"
               style={{ width: `${percent}%` }}
             />
           </div>
@@ -68,7 +68,7 @@ export default function DashboardPage() {
                 ) : (
                   <Link
                     href={item.href ?? "#"}
-                    className="bg-purple-600 text-white rounded-lg px-4 py-2 text-sm font-medium hover:bg-purple-700 transition-all duration-150"
+                    className="bg-[rgb(98_80_237/77%)] text-white rounded-lg px-4 py-2 text-sm font-medium hover:bg-purple-700 transition-all duration-150"
                   >
                     {item.cta}
                   </Link>

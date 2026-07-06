@@ -72,7 +72,7 @@ export function ResultScreen({
             <button
               type="button"
               onClick={onOpenRiskModal}
-              className="bg-purple-600 text-white rounded-lg px-4 py-2 font-medium hover:bg-purple-700 transition-all duration-150"
+              className="bg-[rgb(98_80_237/77%)] text-white rounded-lg px-4 py-2 font-medium hover:bg-purple-700 transition-all duration-150"
             >
               위험 구간 확인하기
             </button>
@@ -100,7 +100,7 @@ export function ResultScreen({
           onClick={() => canCopy && onCopy()}
           className={
             canCopy
-              ? "bg-purple-600 text-white rounded-lg px-4 py-2 font-medium hover:bg-purple-700 transition-all duration-150"
+              ? "bg-[rgb(98_80_237/77%)] text-white rounded-lg px-4 py-2 font-medium hover:bg-purple-700 transition-all duration-150"
               : "bg-gray-200 text-gray-400 rounded-lg px-4 py-2 cursor-not-allowed"
           }
         >

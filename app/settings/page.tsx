@@ -20,7 +20,7 @@ export default function SettingsPage() {
 
           <div className="rounded-lg border border-gray-200 bg-white shadow-sm p-4">
             <div className="flex items-center gap-2">
-              <span className="flex h-6 w-6 items-center justify-center rounded-full bg-purple-600 text-sm font-semibold text-white">
+              <span className="flex h-6 w-6 items-center justify-center rounded-full bg-[rgb(98_80_237/77%)] text-sm font-semibold text-white">
                 3
               </span>
               <h2 className="text-base font-medium text-gray-800">전달 주소 붙여넣기</h2>
