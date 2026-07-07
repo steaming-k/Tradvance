@@ -1,3 +1,6 @@
+'use client';
+
+import { useRouter } from "next/navigation";
 import { CategoryId, DraftSegment, RiskItem } from "@/lib/types";
 import { AccordionStep } from "./AccordionStep";
 import { CategoryTags } from "./CategoryTags";
@@ -29,6 +32,7 @@ export function ResultScreen({
   onReset,
   onApplyTranslatedDraft,
 }: Props) {
+  const router = useRouter();
   const hasRisk = riskItems.length > 0;
   const allChecked = riskItems.every((item) => checkedRiskIds.has(item.id));
   const canCopy = !hasRisk || allChecked;
@@ -60,13 +64,13 @@ export function ResultScreen({
         status={canCopy ? "done" : "active"}
       >
         {!hasRisk && (
-          <p className="text-sm text-gray-500">
+          <p className="text-base text-gray-600">
             이 초안에서는 위험 구간이 발견되지 않았습니다. 바로 복사할 수 있습니다.
           </p>
         )}
         {hasRisk && !allChecked && (
           <div className="flex items-center justify-between">
-            <p className="text-sm font-medium text-pink-800">
+            <p className="text-lg font-medium text-red-700">
               위험 구간 {riskItems.length}건이 발견되었습니다. 확인 후 복사할 수 있습니다.
             </p>
             <button
@@ -87,13 +91,22 @@ export function ResultScreen({
       </AccordionStep>
 
       <div className="flex items-center justify-between pt-2">
-        <button
-          type="button"
-          onClick={onReset}
-          className="text-sm text-gray-500 hover:text-gray-800 transition-all duration-150"
-        >
-          처음으로
-        </button>
+        <div className="flex items-center gap-3">
+          <button
+            type="button"
+            onClick={onReset}
+            className="text-sm text-gray-500 hover:text-gray-800 transition-all duration-150"
+          >
+            처음으로
+          </button>
+          <button
+            type="button"
+            onClick={() => router.push("/")}
+            className="text-sm text-gray-500 hover:text-gray-800 transition-all duration-150"
+          >
+            메인으로
+          </button>
+        </div>
         <button
           type="button"
           disabled={!canCopy}

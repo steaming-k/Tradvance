@@ -17,19 +17,25 @@ export function HeroBackgroundSlideshow() {
   }, []);
 
   return (
-    <div className="absolute inset-0">
+    <div className="absolute inset-0 overflow-hidden">
       {IMAGES.map((src, index) => (
-        <Image
+        <div
           key={src}
-          src={src}
-          alt=""
-          fill
-          priority={index === 0}
-          unoptimized
-          className={`object-cover transition-opacity duration-1000 ${
+          className={`absolute inset-0 transition-opacity duration-[1500ms] ease-in-out ${
             index === activeIndex ? "opacity-100" : "opacity-0"
           }`}
-        />
+        >
+          <div className="absolute -inset-x-[5%] -inset-y-[12%] animate-hero-pan">
+            <Image
+              src={src}
+              alt=""
+              fill
+              priority={index === 0}
+              unoptimized
+              className="object-cover"
+            />
+          </div>
+        </div>
       ))}
     </div>
   );

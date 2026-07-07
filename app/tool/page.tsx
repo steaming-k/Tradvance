@@ -1,8 +1,7 @@
 "use client";
 
-import { Suspense, useState } from "react";
-import { useSearchParams } from "next/navigation";
-import { BackofficeShell } from "@/components/backoffice/BackofficeShell";
+import { useState } from "react";
+import { ToolShell } from "@/components/ToolTopBar";
 import { InquiryInputScreen } from "@/components/InquiryInputScreen";
 import { LoadingScreen } from "@/components/LoadingScreen";
 import { ExceptionScreen } from "@/components/ExceptionScreen";
@@ -11,7 +10,6 @@ import { RiskChecklistModal } from "@/components/RiskChecklistModal";
 import { Toast } from "@/components/Toast";
 import { AnalysisResult } from "@/lib/types";
 import { logEvent } from "@/lib/supabase/logEvent";
-import { getMockInquiry } from "@/lib/mockInquiries";
 import { buildDraftAnalysis } from "@/lib/analyzeInquiry";
 
 type Screen = "input" | "loading" | "result" | "exception";
@@ -23,18 +21,6 @@ function sleep(ms: number) {
 }
 
 export default function ToolPage() {
-  return (
-    <Suspense fallback={null}>
-      <ToolPageContent />
-    </Suspense>
-  );
-}
-
-function ToolPageContent() {
-  const searchParams = useSearchParams();
-  const prefillId = searchParams.get("prefill");
-  const prefillText = prefillId ? getMockInquiry(prefillId)?.originalText ?? "" : "";
-
   const [screen, setScreen] = useState<Screen>("input");
   const [submittedText, setSubmittedText] = useState("");
   const [analysis, setAnalysis] = useState<AnalysisResult | null>(null);
@@ -132,10 +118,8 @@ function ToolPageContent() {
   }
 
   return (
-    <BackofficeShell>
-      {screen === "input" && (
-        <InquiryInputScreen onSubmit={handleSubmit} initialText={prefillText} />
-      )}
+    <ToolShell>
+      {screen === "input" && <InquiryInputScreen onSubmit={handleSubmit} />}
       {screen === "loading" && <LoadingScreen />}
       {screen === "exception" && <ExceptionScreen onRetry={handleReset} />}
       {screen === "result" && analysis && (
@@ -165,6 +149,6 @@ function ToolPageContent() {
       {toastMessage && (
         <Toast message={toastMessage} onDone={() => setToastMessage(null)} />
       )}
-    </BackofficeShell>
+    </ToolShell>
   );
 }

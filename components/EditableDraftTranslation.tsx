@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 interface Props {
   draftText: string;
@@ -14,6 +14,7 @@ export function EditableDraftTranslation({ draftText, onApply }: Props) {
   const [status, setStatus] = useState<Status>("loading");
   const [applying, setApplying] = useState(false);
   const [applyError, setApplyError] = useState(false);
+  const textareaRef = useRef<HTMLTextAreaElement>(null);
 
   useEffect(() => {
     let active = true;
@@ -44,6 +45,14 @@ export function EditableDraftTranslation({ draftText, onApply }: Props) {
     };
   }, [draftText]);
 
+  useEffect(() => {
+    const textarea = textareaRef.current;
+    if (textarea) {
+      textarea.style.height = "auto";
+      textarea.style.height = textarea.scrollHeight + "px";
+    }
+  }, [status, koreanText]);
+
   async function handleApply() {
     setApplying(true);
     setApplyError(false);
@@ -73,7 +82,6 @@ export function EditableDraftTranslation({ draftText, onApply }: Props) {
         ? "번역을 불러오지 못했습니다. (네트워크 연결을 확인해 주세요)"
         : koreanText;
 
-  const rows = Math.min(10, Math.max(3, Math.ceil(displayValue.length / 60)));
   const canApply = status === "done" && !applying && koreanText.trim().length > 0;
 
   return (
@@ -82,11 +90,12 @@ export function EditableDraftTranslation({ draftText, onApply }: Props) {
         한국어 번역 (자동 번역) — 내용을 수정한 뒤 반영하면 영문 초안이 바뀝니다
       </p>
       <textarea
+        ref={textareaRef}
         value={displayValue}
         onChange={(e) => setKoreanText(e.target.value)}
         readOnly={status !== "done"}
-        rows={rows}
-        className="mt-1 w-full resize-none rounded-lg border border-gray-200 bg-white p-3 text-base text-gray-800 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
+        rows={3}
+        className="mt-1 w-full resize-none rounded-lg border border-gray-200 bg-white p-3 text-base text-gray-800 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 overflow-hidden"
       />
       <div className="mt-2 flex items-center gap-2">
         <button

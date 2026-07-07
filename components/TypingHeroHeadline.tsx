@@ -36,6 +36,7 @@ export function TypingHeroHeadline() {
     <h1
       className="text-3xl font-semibold text-white sm:text-4xl"
       aria-label={PHRASES[phraseIndex]}
+      style={{ fontFamily: 'Presentation' }}
     >
       <span aria-hidden="true">{displayedText}</span>
       <span

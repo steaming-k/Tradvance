@@ -1,24 +1,7 @@
-import { notFound } from "next/navigation";
-import { BackofficeShell } from "@/components/backoffice/BackofficeShell";
-import { BoardCardDetail } from "@/components/backoffice/BoardCardDetail";
-import { analyzeInquiry } from "@/lib/analyzeInquiry";
-import { getMockInquiry } from "@/lib/mockInquiries";
+import { redirect } from "next/navigation";
 
-interface Props {
-  params: Promise<{ id: string }>;
-}
-
-export default async function BoardCardPage({ params }: Props) {
-  const { id } = await params;
-  const inquiry = getMockInquiry(id);
-  if (!inquiry) notFound();
-
-  const analysis = analyzeInquiry(inquiry.originalText);
-  if (!analysis.recognized) notFound();
-
-  return (
-    <BackofficeShell>
-      <BoardCardDetail inquiry={inquiry} analysis={analysis} />
-    </BackofficeShell>
-  );
+// 이번 MVP 범위는 로그인/대시보드 없는 단일 흐름(문의 대응)으로 확정되어
+// 문의 보드 화면은 제외했다 (docs/requirements.md 8장 참고).
+export default function BoardCardRedirectPage() {
+  redirect("/tool");
 }

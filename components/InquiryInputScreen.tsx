@@ -1,8 +1,8 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import { SAMPLE_INQUIRIES } from "@/lib/sampleInquiries";
-import { ParticipantCounter } from "./ParticipantCounter";
 
 interface Props {
   onSubmit: (text: string) => void;
@@ -16,14 +16,11 @@ export function InquiryInputScreen({ onSubmit, initialText = "" }: Props) {
   return (
     <div className="mx-auto max-w-3xl px-6 py-10">
       <div className="rounded-lg border border-gray-200 bg-white shadow-sm p-6">
-        <div className="flex items-start justify-between gap-4">
-          <div>
-            <h2 className="text-xl font-semibold text-gray-900">바이어 문의 원문 입력</h2>
-            <p className="mt-1 text-sm text-gray-500">
-              받으신 바이어 문의 이메일을 그대로 붙여넣으면, 확인 항목과 위험 구간이 표시된 영어 답변 초안을 만들어 드립니다.
-            </p>
-          </div>
-          <ParticipantCounter />
+        <div>
+          <h2 className="text-xl font-semibold text-gray-900" style={{ fontFamily: 'Presentation' }}>바이어 문의 원문 입력</h2>
+          <p className="mt-1 text-sm text-gray-500">
+            받으신 바이어 문의 이메일을 그대로 붙여넣으면, 확인 항목과 위험 구간이 표시된 영어 답변 초안을 만들어 드립니다.
+          </p>
         </div>
 
         <textarea
@@ -35,7 +32,7 @@ export function InquiryInputScreen({ onSubmit, initialText = "" }: Props) {
         />
 
         <div className="mt-3 flex flex-wrap gap-2">
-          <span className="text-sm text-gray-500 mr-1 self-center">샘플로 시작하기:</span>
+          <span className="text-sm text-gray-500 mr-1 self-center">샘플로 시작하기 :</span>
           {SAMPLE_INQUIRIES.map((sample) => (
             <button
               key={sample.id}
