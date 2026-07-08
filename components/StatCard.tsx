@@ -103,7 +103,7 @@ export function StatCard({ value, label, items, delay = 0 }: Props) {
           </div>
         </div>
       ) : items ? (
-        <div className="flex flex-wrap gap-2 justify-center mb-4">
+        <div className="flex h-24 flex-wrap content-center gap-2 justify-center mb-4">
           {items.map((item, i) => (
             <span
               key={i}
