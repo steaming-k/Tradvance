@@ -85,14 +85,14 @@ export default function LandingPage() {
             className="mx-auto mb-4 h-[100px] w-auto -translate-x-[15px]"
           />
           <h2 className="mt-3 text-2xl font-semibold leading-loose text-gray-900 sm:text-3xl" style={{ fontFamily: 'Presentation', fontWeight: 600, lineHeight: '1.5' }}>
-            해외 바이어 문의, 확인 항목과 위험 구간까지
+            해외 바이어 문의,<br className="sm:hidden" /> 확인 항목과 위험 구간까지
             <br />
             짚어주는 영어 응대 초안
           </h2>
           <p className="mx-auto mt-4 max-w-xl text-base text-gray-500">
-            소규모 제조업체를 위해, 바이어 문의 원문을 붙여넣으면 확인 항목을 분류하고
+            소규모 제조업체를 위해,<br className="sm:hidden" /> 바이어 문의 원문을 붙여넣으면 확인 항목을 분류하고
             <br />
-            확정되지 않은 정보를 짚어주는 영어 답변 초안을 만들어 드립니다.
+            확정되지 않은 정보를 짚어주는<br className="sm:hidden" /> 영어 답변 초안을 만들어 드립니다.
           </p>
 
           <AnimatedElement>
@@ -241,7 +241,7 @@ export default function LandingPage() {
         <div className="mx-auto max-w-5xl px-6 py-16">
           <h2 className="text-xl font-semibold text-gray-900" style={{ fontFamily: 'Presentation', lineHeight: '1.5' }}>동작 순서</h2>
 
-          <div className="mt-8 flex items-stretch justify-between gap-4">
+          <div className="mt-8 flex items-stretch justify-between gap-4 flex-col md:flex-row">
             {STEPS.map((step, i) => (
               <div key={step.n} className="flex items-center gap-4 flex-1">
                 <AnimatedElement delay={i * 0.1}>
@@ -261,7 +261,7 @@ export default function LandingPage() {
                   </div>
                 </AnimatedElement>
                 {i < STEPS.length - 1 && (
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="text-gray-400 flex-shrink-0">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="text-gray-400 flex-shrink-0 hidden md:block">
                     <polyline points="9 18 15 12 9 6"></polyline>
                   </svg>
                 )}

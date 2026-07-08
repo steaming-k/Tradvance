@@ -69,7 +69,7 @@ export function ResultScreen({
           </p>
         )}
         {hasRisk && !allChecked && (
-          <div className="flex items-center justify-between">
+          <div className="flex justify-between flex-col sm:flex-row gap-3 items-end sm:items-center">
             <p className="text-lg font-medium text-[#C51010]">
               위험 구간 {riskItems.length}건이 발견되었습니다. 확인 후 복사할 수 있습니다.
             </p>

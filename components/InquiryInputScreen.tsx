@@ -32,13 +32,13 @@ export function InquiryInputScreen({ onSubmit, initialText = "" }: Props) {
         />
 
         <div className="mt-4 flex flex-wrap gap-2">
-          <span className="text-base text-gray-500 mr-1 self-center">샘플로 시작하기 :</span>
+          <span className="text-base text-gray-500 mr-1 self-center w-full sm:w-auto">샘플로 시작하기 :</span>
           {SAMPLE_INQUIRIES.map((sample) => (
             <button
               key={sample.id}
               type="button"
               onClick={() => setText(sample.text)}
-              className="border border-gray-300 text-gray-700 rounded-lg px-4 py-1.5 text-base hover:bg-gray-50 transition-all duration-150"
+              className="border border-gray-300 text-gray-700 rounded-lg px-4 py-1.5 text-base hover:bg-gray-50 transition-all duration-150 w-full sm:w-auto"
             >
               {sample.label}
             </button>
