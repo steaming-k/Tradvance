@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { ToolShell } from "@/components/ToolTopBar";
+import { FadeSwitch } from "@/components/FadeSwitch";
 import { InquiryInputScreen } from "@/components/InquiryInputScreen";
 import { LoadingScreen } from "@/components/LoadingScreen";
 import { ExceptionScreen } from "@/components/ExceptionScreen";
@@ -119,22 +120,24 @@ export default function ToolPage() {
 
   return (
     <ToolShell>
-      {screen === "input" && <InquiryInputScreen onSubmit={handleSubmit} />}
-      {screen === "loading" && <LoadingScreen />}
-      {screen === "exception" && <ExceptionScreen onRetry={handleReset} />}
-      {screen === "result" && analysis && (
-        <ResultScreen
-          originalText={submittedText}
-          mentionedCategoryIds={analysis.mentionedCategoryIds}
-          draftSegments={analysis.draftSegments}
-          riskItems={analysis.riskItems}
-          checkedRiskIds={checkedRiskIds}
-          onOpenRiskModal={handleOpenRiskModal}
-          onCopy={handleCopy}
-          onReset={handleReset}
-          onApplyTranslatedDraft={handleApplyTranslatedDraft}
-        />
-      )}
+      <FadeSwitch activeKey={screen}>
+        {screen === "input" && <InquiryInputScreen onSubmit={handleSubmit} />}
+        {screen === "loading" && <LoadingScreen />}
+        {screen === "exception" && <ExceptionScreen onRetry={handleReset} />}
+        {screen === "result" && analysis && (
+          <ResultScreen
+            originalText={submittedText}
+            mentionedCategoryIds={analysis.mentionedCategoryIds}
+            draftSegments={analysis.draftSegments}
+            riskItems={analysis.riskItems}
+            checkedRiskIds={checkedRiskIds}
+            onOpenRiskModal={handleOpenRiskModal}
+            onCopy={handleCopy}
+            onReset={handleReset}
+            onApplyTranslatedDraft={handleApplyTranslatedDraft}
+          />
+        )}
+      </FadeSwitch>
 
       {modalOpen && analysis && (
         <RiskChecklistModal

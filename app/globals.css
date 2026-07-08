@@ -99,6 +99,118 @@ body {
   animation: heroPan 12s ease-in-out infinite alternate;
 }
 
+@keyframes pageFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes pageFadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+.animate-page-fade-in {
+  animation: pageFadeIn 0.25s ease-out;
+}
+
+.animate-page-fade-out {
+  animation: pageFadeOut 0.2s ease-in forwards;
+}
+
+@keyframes modalBackdropIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes modalBackdropOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes modalPanelIn {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes modalPanelOut {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+}
+
+.animate-modal-backdrop-in {
+  animation: modalBackdropIn 0.2s ease-out;
+}
+
+.animate-modal-backdrop-out {
+  animation: modalBackdropOut 0.2s ease-in forwards;
+}
+
+.animate-modal-panel-in {
+  animation: modalPanelIn 0.3s ease-out 0.1s both;
+}
+
+.animate-modal-panel-out {
+  animation: modalPanelOut 0.2s ease-in forwards;
+}
+
+@keyframes screenFadeSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes screenFadeSlideOut {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-14px);
+  }
+}
+
+.animate-screen-in {
+  animation: screenFadeSlideIn 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.animate-screen-out {
+  animation: screenFadeSlideOut 0.22s ease-in forwards;
+}
+
 .step-card-1 {
   clip-path: polygon(0 0, 85% 0, 100% 50%, 85% 100%, 0 100%, 8% 50%);
 }

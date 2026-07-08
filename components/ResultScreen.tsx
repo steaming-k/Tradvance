@@ -1,6 +1,6 @@
 'use client';
 
-import { useRouter } from "next/navigation";
+import { usePageTransition } from "./PageTransitionProvider";
 import { CategoryId, DraftSegment, RiskItem } from "@/lib/types";
 import { AccordionStep } from "./AccordionStep";
 import { CategoryTags } from "./CategoryTags";
@@ -32,7 +32,7 @@ export function ResultScreen({
   onReset,
   onApplyTranslatedDraft,
 }: Props) {
-  const router = useRouter();
+  const { navigate } = usePageTransition();
   const hasRisk = riskItems.length > 0;
   const allChecked = riskItems.every((item) => checkedRiskIds.has(item.id));
   const canCopy = !hasRisk || allChecked;
@@ -70,13 +70,13 @@ export function ResultScreen({
         )}
         {hasRisk && !allChecked && (
           <div className="flex items-center justify-between">
-            <p className="text-lg font-medium text-red-700">
+            <p className="text-lg font-medium text-[#C51010]">
               위험 구간 {riskItems.length}건이 발견되었습니다. 확인 후 복사할 수 있습니다.
             </p>
             <button
               type="button"
               onClick={onOpenRiskModal}
-              className="bg-[rgb(98_80_237/77%)] text-white rounded-lg px-4 py-2 font-medium hover:bg-[rgb(98_80_237/100%)] transition-all duration-150"
+              className="bg-[#E661AD] text-white rounded-lg px-4 py-2 font-medium hover:bg-[#CF579C] transition-all duration-150"
             >
               위험 구간 확인하기
             </button>
@@ -101,7 +101,7 @@ export function ResultScreen({
           </button>
           <button
             type="button"
-            onClick={() => router.push("/")}
+            onClick={() => navigate("/")}
             className="text-sm text-gray-500 hover:text-gray-800 transition-all duration-150"
           >
             메인으로

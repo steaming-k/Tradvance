@@ -13,6 +13,8 @@ interface Props {
   onConfirm: () => void;
 }
 
+const EXIT_DURATION_MS = 200;
+
 export function RiskChecklistModal({
   riskItems,
   checkedRiskIds,
@@ -21,11 +23,25 @@ export function RiskChecklistModal({
   onConfirm,
 }: Props) {
   const [attemptedConfirm, setAttemptedConfirm] = useState(false);
+  const [closing, setClosing] = useState(false);
   const allChecked = riskItems.every((item) => checkedRiskIds.has(item.id));
 
+  function closeWith(action: () => void) {
+    setClosing(true);
+    setTimeout(action, EXIT_DURATION_MS);
+  }
+
   return (
-    <div className="fixed inset-0 bg-black/40 flex items-center justify-center px-4 z-50">
-      <div className="rounded-lg bg-white shadow-lg p-6 max-w-lg w-full max-h-[85vh] overflow-y-auto">
+    <div
+      className={`fixed inset-0 bg-black/40 flex items-center justify-center px-4 z-50 ${
+        closing ? "animate-modal-backdrop-out" : "animate-modal-backdrop-in"
+      }`}
+    >
+      <div
+        className={`rounded-lg bg-white shadow-lg p-6 max-w-lg w-full max-h-[85vh] overflow-y-auto ${
+          closing ? "animate-modal-panel-out" : "animate-modal-panel-in"
+        }`}
+      >
         <div className="flex items-start justify-between">
           <div>
             <h2 className="text-xl font-semibold text-gray-900">위험 구간 확인</h2>
@@ -35,7 +51,7 @@ export function RiskChecklistModal({
           </div>
           <button
             type="button"
-            onClick={onClose}
+            onClick={() => closeWith(onClose)}
             aria-label="닫기"
             className="text-gray-500 hover:text-gray-800 transition-all duration-150"
           >
@@ -55,7 +71,7 @@ export function RiskChecklistModal({
                   type="checkbox"
                   checked={checked}
                   onChange={() => onToggle(item.id)}
-                  className="mt-1 h-4 w-4 accent-indigo-600"
+                  className="mt-[5px] h-4 w-4 accent-indigo-600"
                 />
                 <div>
                   <span className="rounded-full px-2 py-0.5 text-sm bg-indigo-100 text-indigo-700">
@@ -79,7 +95,7 @@ export function RiskChecklistModal({
         <div className="mt-6 flex justify-end gap-2">
           <button
             type="button"
-            onClick={onClose}
+            onClick={() => closeWith(onClose)}
             className="border border-gray-300 text-gray-700 rounded-lg px-4 py-2 hover:bg-gray-50 transition-all duration-150"
           >
             나중에 확인
@@ -88,14 +104,14 @@ export function RiskChecklistModal({
             type="button"
             onClick={() => {
               if (allChecked) {
-                onConfirm();
+                closeWith(onConfirm);
               } else {
                 setAttemptedConfirm(true);
               }
             }}
             className={
               allChecked
-                ? "bg-[rgb(98_80_237/77%)] text-white rounded-lg px-4 py-2 font-medium hover:bg-[rgb(98_80_237/100%)] transition-all duration-150"
+                ? "bg-[#27824A] text-white rounded-lg px-4 py-2 font-medium hover:bg-[#227241] transition-all duration-150"
                 : "bg-gray-200 text-gray-400 rounded-lg px-4 py-2 cursor-not-allowed"
             }
           >

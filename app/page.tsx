@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { TransitionLink } from "@/components/TransitionLink";
 import { NoticeBar } from "@/components/NoticeBar";
 import { LandingHeaderLogo } from "@/components/LandingHeaderLogo";
 import { TypingHeroHeadline } from "@/components/TypingHeroHeadline";
@@ -53,12 +54,12 @@ export default function LandingPage() {
       <header className="sticky top-0 z-50 bg-white border-b border-gray-200">
         <div className="mx-auto max-w-5xl px-6 py-4 flex items-center justify-between">
           <LandingHeaderLogo />
-          <Link
+          <TransitionLink
             href="/tool"
             className="bg-[rgb(98_80_237/77%)] text-white rounded-lg px-4 py-2 text-sm font-medium hover:bg-[rgb(98_80_237/100%)] transition-all duration-150"
           >
             사용해보기
-          </Link>
+          </TransitionLink>
         </div>
       </header>
 
@@ -147,12 +148,12 @@ export default function LandingPage() {
           </AnimatedElement>
           <AnimatedElement delay={0.2}>
             <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
-            <Link
+            <TransitionLink
               href="/tool"
               className="bg-[rgb(98_80_237/77%)] text-white rounded-lg px-5 py-2.5 font-medium hover:bg-[rgb(98_80_237/100%)] transition-all duration-150"
             >
               지금 사용해보기
-            </Link>
+            </TransitionLink>
             <Link
               href="#features"
               className="border border-gray-300 text-gray-700 rounded-lg px-5 py-2.5 font-medium hover:bg-gray-50 transition-all duration-150"
@@ -164,7 +165,7 @@ export default function LandingPage() {
         </div>
       </section>
 
-      <section id="features" className="bg-white border-t border-gray-200">
+      <section id="features" className="bg-white border-t border-gray-200 scroll-mt-5">
         <div className="mx-auto max-w-5xl px-6 py-16">
           <h2 className="text-xl font-semibold text-gray-900" style={{ fontFamily: 'Presentation', lineHeight: '1.5' }}>핵심 기능</h2>
           <p className="mt-1 text-sm text-gray-500">

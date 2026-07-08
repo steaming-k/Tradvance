@@ -16,7 +16,7 @@ export function AccordionStep({ stepNumber, title, status, children }: Props) {
       className={
         isDone
           ? "border-l-4 border-gray-200 bg-gray-50 rounded-lg p-5 transition-all duration-200"
-          : "border-l-4 border-indigo-500 bg-indigo-50 rounded-lg p-5 transition-all duration-200"
+          : "border-l-4 border-pink-300 bg-pink-50/60 rounded-lg p-5 transition-all duration-200"
       }
     >
       <div className="flex items-center justify-between">
