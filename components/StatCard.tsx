@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 interface Props {
   value: string;
@@ -11,8 +11,38 @@ interface Props {
 
 export function StatCard({ value, label, items, delay = 0 }: Props) {
   const [animatedValue, setAnimatedValue] = useState(0);
+  const [isVisible, setIsVisible] = useState(false);
+  const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setIsVisible(true);
+          } else {
+            setIsVisible(false);
+            setAnimatedValue(0);
+          }
+        });
+      },
+      { threshold: 0.2 }
+    );
+
+    if (ref.current) {
+      observer.observe(ref.current);
+    }
+
+    return () => {
+      if (ref.current) {
+        observer.unobserve(ref.current);
+      }
+    };
+  }, []);
+
+  useEffect(() => {
+    if (!isVisible) return;
+
     const numValue = parseInt(value);
     if (isNaN(numValue)) return;
 
@@ -30,14 +60,14 @@ export function StatCard({ value, label, items, delay = 0 }: Props) {
     }, 30);
 
     return () => clearInterval(interval);
-  }, [value]);
+  }, [value, isVisible]);
 
   const isPercentage = value.includes("%");
-  const numValue = parseInt(value) || 0;
 
   return (
     <div
-      className="rounded-lg border border-gray-200 bg-white p-6 flex flex-col items-center animate-slide-up"
+      ref={ref}
+      className={`rounded-lg border border-gray-200 bg-white p-6 flex flex-col items-center ${isVisible ? "animate-slide-up" : ""}`}
       style={{ boxShadow: '0 2px 4px 0 rgba(0, 0, 0, 0.1)', animationDelay: `${delay}s` }}
     >
       {isPercentage ? (

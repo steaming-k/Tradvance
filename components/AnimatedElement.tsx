@@ -16,6 +16,8 @@ export function AnimatedElement({ children, delay = 0 }: Props) {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             entry.target.classList.add('animate-slide-up');
+          } else {
+            entry.target.classList.remove('animate-slide-up');
           }
         });
       },
