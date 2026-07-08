@@ -60,13 +60,13 @@ const PARAGRAPH_BUILDERS: Record<CategoryId, (value: string | null) => string> =
     } deposit and the balance before shipment. Final terms are subject to confirmation with our finance team.`,
 };
 
-const OPENING =
+export const OPENING =
   "Dear Sir/Madam,\n\nThank you very much for your inquiry. Please find our response to each item below.\n\n";
 
-const CLOSING =
+export const CLOSING =
   "\nPlease let us know if you need any further information. We look forward to your reply.\n\nBest regards,";
 
-const FALLBACK_PARAGRAPH =
+export const FALLBACK_PARAGRAPH =
   "Thank you for reaching out to us. Could you kindly share a few more details on pricing, MOQ, lead time, specifications, packaging, certification, or payment terms so that we can assist you as accurately as possible?";
 
 export function buildDraftText(

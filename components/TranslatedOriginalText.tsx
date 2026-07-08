@@ -59,7 +59,7 @@ export function TranslatedOriginalText({ text }: Props) {
 
   return (
     <div className="mt-3">
-      <p className="text-sm text-gray-500">한국어 번역 (참고용, 자동 번역)</p>
+      <p className="text-base text-gray-500">한국어 번역 (참고용, 자동 번역)</p>
       <textarea
         ref={textareaRef}
         readOnly

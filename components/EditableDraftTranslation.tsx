@@ -86,8 +86,11 @@ export function EditableDraftTranslation({ draftText, onApply }: Props) {
 
   return (
     <div className="mt-3">
-      <p className="text-sm text-gray-500">
-        한국어 번역 (자동 번역) — 내용을 수정한 뒤 반영하면 영문 초안이 바뀝니다
+      <p className="text-base text-gray-500">
+        한국어 번역 (자동 번역) —{" "}
+        <span className="text-red-600 font-medium">
+          내용을 수정한 뒤 반영하면 영문 초안이 바뀝니다
+        </span>
       </p>
       <textarea
         ref={textareaRef}
@@ -104,8 +107,8 @@ export function EditableDraftTranslation({ draftText, onApply }: Props) {
           onClick={handleApply}
           className={
             canApply
-              ? "border border-indigo-300 text-indigo-700 rounded-lg px-3 py-1.5 text-sm font-medium hover:bg-indigo-50 transition-all duration-150"
-              : "border border-gray-200 text-gray-400 rounded-lg px-3 py-1.5 text-sm cursor-not-allowed"
+              ? "border border-indigo-300 text-indigo-700 rounded-lg px-4 py-2 text-base font-medium hover:bg-indigo-50 transition-all duration-150"
+              : "border border-gray-200 text-gray-400 rounded-lg px-4 py-2 text-base cursor-not-allowed"
           }
         >
           {applying ? "반영 중..." : "이 번역으로 영문 초안 수정하기"}

@@ -15,18 +15,26 @@ export function StatCard({ value, label, items, delay = 0 }: Props) {
   const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    let hideTimeout: ReturnType<typeof setTimeout> | null = null;
+
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
+            if (hideTimeout) {
+              clearTimeout(hideTimeout);
+              hideTimeout = null;
+            }
             setIsVisible(true);
           } else {
-            setIsVisible(false);
-            setAnimatedValue(0);
+            hideTimeout = setTimeout(() => {
+              setIsVisible(false);
+              setAnimatedValue(0);
+            }, 200);
           }
         });
       },
-      { threshold: 0.2 }
+      { threshold: 0.2, rootMargin: '0px 0px -5% 0px' }
     );
 
     if (ref.current) {
@@ -34,6 +42,9 @@ export function StatCard({ value, label, items, delay = 0 }: Props) {
     }
 
     return () => {
+      if (hideTimeout) {
+        clearTimeout(hideTimeout);
+      }
       if (ref.current) {
         observer.unobserve(ref.current);
       }
@@ -67,7 +78,7 @@ export function StatCard({ value, label, items, delay = 0 }: Props) {
   return (
     <div
       ref={ref}
-      className={`rounded-lg border border-gray-200 bg-white p-6 flex flex-col items-center ${isVisible ? "animate-slide-up" : ""}`}
+      className={`rounded-lg border border-gray-200 bg-white p-6 flex flex-col items-center ${isVisible ? "animate-slide-up" : "opacity-0"}`}
       style={{ boxShadow: '0 2px 4px 0 rgba(0, 0, 0, 0.1)', animationDelay: `${delay}s` }}
     >
       {isPercentage ? (

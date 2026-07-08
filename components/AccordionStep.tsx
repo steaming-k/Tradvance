@@ -15,12 +15,12 @@ export function AccordionStep({ stepNumber, title, status, children }: Props) {
     <div
       className={
         isDone
-          ? "border-l-4 border-gray-200 bg-gray-50 rounded-lg p-4 transition-all duration-200"
-          : "border-l-4 border-indigo-500 bg-indigo-50 rounded-lg p-4 transition-all duration-200"
+          ? "border-l-4 border-gray-200 bg-gray-50 rounded-lg p-5 transition-all duration-200"
+          : "border-l-4 border-indigo-500 bg-indigo-50 rounded-lg p-5 transition-all duration-200"
       }
     >
       <div className="flex items-center justify-between">
-        <h3 className="text-base font-medium text-gray-800">
+        <h3 className="text-lg font-medium text-gray-800">
           {stepNumber}. {title}
         </h3>
         {isDone && (
@@ -30,7 +30,7 @@ export function AccordionStep({ stepNumber, title, status, children }: Props) {
           </span>
         )}
       </div>
-      <div className="mt-3">{children}</div>
+      <div className="mt-4">{children}</div>
     </div>
   );
 }
