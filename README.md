@@ -3,6 +3,7 @@
 > 해외 바이어 문의를 붙여넣으면 확인 항목을 분류하고, 위험 구간을 짚어주는 영어 응대 초안을 생성하는 도구
 
 🔗 **배포 링크**: https://tradvance-korea.vercel.app/
+
 🛠 **기술 스택**: Next.js (App Router) · TypeScript · Tailwind CSS · Supabase
 
 핵심 원칙: **AI(자동화 로직)는 초안 생성까지만, 확인·발송은 담당자가 직접 한다.**
