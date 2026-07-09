@@ -100,7 +100,7 @@ export function EditableDraftTranslation({ draftText, onApply }: Props) {
         rows={3}
         className="mt-1 w-full resize-none rounded-lg border border-gray-200 bg-white p-3 text-base text-gray-800 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 overflow-hidden"
       />
-      <div className="mt-2 flex items-center gap-2">
+      <div className="mt-2 flex items-center gap-2 justify-end sm:justify-start">
         <button
           type="button"
           disabled={!canApply}
