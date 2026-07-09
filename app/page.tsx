@@ -10,6 +10,7 @@ import { HeroBackgroundSlideshow } from "@/components/HeroBackgroundSlideshow";
 import { CheckIcon } from "@/components/icons";
 import { StatCard } from "@/components/StatCard";
 import { AnimatedElement } from "@/components/AnimatedElement";
+import { KoreanEditDemo } from "@/components/KoreanEditDemo";
 
 const CATEGORY_LABELS = [
   "가격/견적",
@@ -183,6 +184,26 @@ export default function LandingPage() {
               기능 살펴보기
             </Link>
             </div>
+          </AnimatedElement>
+        </div>
+      </section>
+
+      <section className="bg-white border-t border-gray-200">
+        <div className="mx-auto max-w-3xl px-6 py-16">
+          <AnimatedElement>
+            <div className="text-center">
+              <span className="rounded-full px-2 py-0.5 text-sm bg-indigo-50 text-indigo-700">
+                한영 자동 반영
+              </span>
+              <h2 className="mt-3 text-xl font-semibold text-gray-900 sm:text-2xl" style={{ fontFamily: 'Presentation', lineHeight: '1.5' }}>
+                영어가 부담스럽다구요? 괜찮습니다!
+              </h2>
+              <p className="mt-2 text-sm text-gray-500">
+                초안은 영어로 만들어지지만, 확인과 수정은 한국어로 하면 됩니다.<br className="hidden sm:block" />
+                아래 한국어 번역을 고치면 영문 초안이 그 자리에서 자동으로 바뀝니다.
+              </p>
+            </div>
+            <KoreanEditDemo />
           </AnimatedElement>
         </div>
       </section>
