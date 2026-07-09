@@ -43,9 +43,31 @@ const STEPS = [
 ];
 
 const STATS = [
-  { value: "89%", label: "완전 자동화가 아닌 사람 개입을 선호한 응답자" },
-  { value: "67%", label: "AI 답변 과신을 가장 큰 우려로 꼽은 응답자" },
-  { value: "7개", label: "인터뷰에서 도출한 확인 항목 카테고리", items: CATEGORY_LABELS },
+  {
+    value: "89%",
+    label: (
+      <>
+        완전 자동화가 아닌<br className="hidden md:block xl:hidden" /> 사람 개입을 선호한 응답자
+      </>
+    ),
+  },
+  {
+    value: "67%",
+    label: (
+      <>
+        AI 답변 과신을<br className="hidden md:block xl:hidden" /> 가장 큰 우려로 꼽은 응답자
+      </>
+    ),
+  },
+  {
+    value: "7개",
+    label: (
+      <>
+        인터뷰에서 도출한<br className="hidden md:block xl:hidden" /> 확인 항목 카테고리
+      </>
+    ),
+    items: CATEGORY_LABELS,
+  },
 ];
 
 export default function LandingPage() {
@@ -243,7 +265,7 @@ export default function LandingPage() {
 
           <div className="mt-8 flex items-stretch justify-between gap-4 flex-col md:flex-row">
             {STEPS.map((step, i) => (
-              <div key={step.n} className="flex items-center gap-4 flex-1">
+              <div key={step.n} className="flex items-center gap-4 flex-1 md:items-stretch xl:items-center">
                 <AnimatedElement delay={i * 0.1}>
                   <div
                     className="border border-gray-200 bg-white p-5 rounded-lg flex flex-col items-center justify-start flex-1 h-full"
@@ -261,7 +283,7 @@ export default function LandingPage() {
                   </div>
                 </AnimatedElement>
                 {i < STEPS.length - 1 && (
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="text-gray-400 flex-shrink-0 hidden md:block">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="text-gray-400 flex-shrink-0 hidden md:block self-center">
                     <polyline points="9 18 15 12 9 6"></polyline>
                   </svg>
                 )}
@@ -282,7 +304,7 @@ export default function LandingPage() {
 
           <div className="mt-8 grid gap-4 md:grid-cols-3">
             {STATS.map((stat, i) => (
-              <StatCard key={stat.label} value={stat.value} label={stat.label} items={stat.items} delay={i * 0.1} />
+              <StatCard key={stat.value} value={stat.value} label={stat.label} items={stat.items} delay={i * 0.1} />
             ))}
           </div>
         </div>
@@ -291,7 +313,7 @@ export default function LandingPage() {
       <footer className="bg-white border-t border-gray-200">
         <div className="mx-auto max-w-5xl px-6 py-8 text-center">
           <p className="text-sm text-gray-500">
-            Tradvance · 입력한 문의는 분석 용도로만 사용되며, 원문은 서버에
+            Tradvance · 입력한 문의는 분석 용도로만 사용되며,<br className="sm:hidden" /> 원문은 서버에
             저장되지 않습니다.
           </p>
         </div>
